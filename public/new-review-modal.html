@@ -1,0 +1,28 @@
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-center">
+                    <h3 class="modal-title text-light">Contribute a Review</h3>
+                    <button type="button" class="close bg-light" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body px-5">
+                    <!-- all input to be sent to server, and buttons must be written the 'form' tag-->
+                    <form id="reviewForm">
+                        <div class="row" text-center id="commentBody">
+                            <label for="Cemail">Email</label>
+                            <input type="text" id="Cemail" class="form-control" required readonly>
+                            <label for="useComments">Review</label>
+                            <textarea id="userComments" required class="form-control form-rounded" rows="3" cols="100%"></textarea>
+                        </div>
+    
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="submitReview" onclick="addReview()">Submit</button>
+                            <button type="button" class="btn btn-secondary bg-dark" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

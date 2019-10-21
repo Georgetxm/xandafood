@@ -1,0 +1,27 @@
+<div id="profileModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="profile">Profile</h2> 
+                <button type="button" class="close" data-dismiss="modal"> &times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="form-group">
+                    <div class="form-group">
+                        <label for="uAddress">Address</label>
+                        <input type="text" class="form-control input-sm" id="uAddress" name="uAddress">
+                    </div>
+                    <div class="form-group">
+                        <label for="uPostal">Postal Code</label>
+                        <input type="text" maxlength="5" class="form-control input-sm" id="uPostal" name="uPostal">
+                    </div>
+                    <div class="form-group">
+                        <label for="uNumber">Phone Number</label>
+                        <input type="text" maxlength="8" class="form-control input-sm" id="uNumber" name="uNumber">
+                    </div>
+                    <button type="button" class="btn btn-info btn-xs" onClick = "updateCredentials()">Update Profile</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

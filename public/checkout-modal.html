@@ -1,0 +1,87 @@
+<div id="checkoutModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Checkout</h2>
+                <button type="button" class="close" data-dismiss="modal"> &times;</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <!-- col-md-10 col-md-offset-1 -->
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th class="text-center">Price</th>
+                                        <th class="text-center">Total</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cartItemsTable">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <h5>Subtotal</h5>
+                    </td>
+                    <td class="text-right">
+                        <h5 id="subTotal">
+                            <strong>$0</strong>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>   </td>
+                    <td> </td>
+                    <td>   </td>
+                    <td>
+                        <h5>Delivery Cost</h5>
+                    </td>
+                    <td class="text-right">
+                        <h5 id="deliveryCost">
+                            <strong>$3</strong>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>   </td>
+                    <td>   </td>
+                    <td>   </td>
+                    <td>
+                        <h3 >Total</h3>
+                    </td>
+                    <td class="text-right">
+                        <h3 id="totalCost">
+                            <strong>$3</strong>
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>   </td>
+                    <td>   </td>
+                    <td>   </td>
+                    <td>
+                       
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success" onClick="checkedOut()">
+                            <a>Checkout</a>
+                            <span class="fa fa-play"></span>
+                        </button>
+                    </td>
+            </div>
+        </div>
+    </div>
+</div>

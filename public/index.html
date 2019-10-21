@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Xanda Café</title>
+
+    <link rel="shortcut icon" type="image/gif/png" href="images/white_bull.png" />
+    <!-- Custom fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Fjalla+One|Cantarell:400,400italic,700italic,700" rel="stylesheet" type="text/css">
+
+    <!-- Icons from Free Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Datetime CSS -->
+    <link href="css/jquery.datetimepicker.css" rel="stylesheet">
+
+    <!-- Lightbox CSS -->
+    <link href="css/lightbox.css" rel="stylesheet">
+
+    <!-- Custom CSS style -->
+    <link href="css/stylesheet.css" rel="stylesheet">
+
+</head>
+
+
+<body id="page-top" onload="getProductsData();checkLoginStatus();fetchReviews();" onbeforeunload ="return deleteCart()">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a> -->
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>    
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a class="nav-link js-scroll-trigger" href="#cart">
+                            <a class="nav-link js-scroll-trigger" href="#page-top"><img src="images/white_bull.png" width="25" height="25" class="d-inline-block align-top" alt="cart">Xanda</a>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#reservation">Reservation</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#contactus">Contact Us</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#review">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#gallery">Gallery</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" id="navRight">
+                    <li>
+                        <a class="nav-link js-scroll-trigger" href="#cart">
+                            <img src="images/cart.png" width="25" height="25" class="d-inline-block align-top" alt="cart" onClick="getCartItems()">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" id="loginNav" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" style="visibility:hidden;" id="logout" onClick="logout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+            </nav>
+            
+            <!-- Homepage/ Header -->
+            <header class="masthead">
+                <div class="intro-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 mx-auto">
+                                <h1 class="brand-heading">Xanda
+            
+                                    <h2>Café</h2>
+                                </h1>
+                                <p class="intro-text">99 Irving Street, Singapore 530099
+                                    <br>TEL 60303011</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- About Us -->
+            <section id="about" class="about-body content-body about-parallax">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 mx-auto">
+                            <h2>About Xanda</h2>
+                            <img src="images/white_bull.png">
+                            <p>Xanda's Bar and Grill is the brainchild of Jordan Xanda
+                                <br> The original Xanda's was opened in Gotham in 1969 by his father Bruce Xanda.
+                                <br> Jordan Xanda then decided to pay tribute to his father by re&minus;opening it in Singapore.
+                                <br> Now a hearty local bar serving brunch, dinner and cocktails.
+                                <br> Xanda is located at 99 Irving Street &lpar;Behind Gotham Alley&rpar;.
+                                <br> Opened from 12 noon to 12 midnight, Monday to Saturday.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Menu -->
+            <section id="menu" class=" menu-body content-body menu-parallax">
+                <div class="container">
+                    <div class="">
+                        <h2>Menus</h2>
+                        <ul class="nav nav-tabs mu-restaurant-menu">
+                            <li id="mainsTabs" class="tabs-list active">
+                                <a href="#mainsMenus" data-toggle="tab" onClick="displayMains()">Mains</a>
+                            </li>
+                            <li id="dessertsTabs" class="tabs-list">
+                                <a href="#dessertsMenu" data-toggle="tab" onClick="displayDesserts()">Desserts</a>
+                            </li>
+                            <li id="drinksTabs" class="tabs-list">
+                                <a href="#drinksMenu" data-toggle="tab" onClick="displayDrinks()">Drinks</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div id="mainsMenu" class="tab-pane fade active show">
+                            <div class="row" id="MainsTable">
+                            </div>
+                        </div>
+                        <div id="dessertsMenu" class="tab-pane fade">
+                            <div class="row" id="DessertsTable">
+                            </div>
+                        </div>
+                        <div id="drinksMenu" class="tab-pane fade">
+                            <div class="row" id="DrinksTable">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </section>
+
+  
+
+    <!-- Reservation -->
+    <section id="reservation" class="reservation-body reservation-parallax">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Reservation</h2>
+                    <form method="post" class="reserve-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="people">How Many People</label>
+                                    <div class="form-field">
+                                        <!-- <i class="fa fa-angle-down"></i> -->
+                                        <select name="people" id="people" class="form-control">
+                                            <option value="#">1 people</option>
+                                            <option value="#">2 people</option>
+                                            <option value="#">3 people</option>
+                                            <option value="#">4+ people</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="date">Date</label>
+                                    <div class="form-field">
+                                        <i class="fa fa-calendar"></i>
+                                        <input type="text" id="dates" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Second Row -->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <div class="form-field">
+                                        <i class="fa fa-user"></i>
+                                        <input type="text" id="Rname" class="form-control" placeholder="Your full name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <div class="form-field">
+                                        <i class="fa fa-envelope"></i>
+                                        <input type="text" id="Remail" class="form-control" placeholder="Your email address">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <div class="form-field">
+                                        <i class="fa fa-phone"></i>
+                                        <input type="text" id="phone" class="form-control" placeholder="Your phone">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Third Row -->
+                        <div class="row">
+                            <div class="col-md-4 mx-auto">
+                                <input type="button" name="submit" id="submit" value="Submit" class="btn btn-lg btn-primary btn-block" onClick="reservationPrompt()">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map -->
+    <section id="map">
+            <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJgUtVio0X2jERxfa9_fl6ZGs&key=AIzaSyCKcNnNdHT9uW-t67m1d_0QcyiiMMugy60" allowfullscreen></iframe>
+    </section>
+
+    <!-- Contact Us
+    <section id="contactus" class="content-body contact-body contact-parallax">
+        <h2>Contact Us</h2><br>
+        <div class="container">
+                <div class="row">
+                <div class="col-md-6 left-contact">
+                    <form id="contact" action="" method="post">
+                        <h3>Quick Contact</h3>
+                        <h4>Contact us today, and get reply with in 24 hours!</h4>
+                        <fieldset>
+                            <input  placeholder="Your name" type="text" tabindex="1" required autofocus>
+                        </fieldset>
+                        <fieldset>
+                            <input placeholder="Your Email Address" type="email" tabindex="2" required>
+                        </fieldset>
+                        <fieldset>
+                            <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
+                        </fieldset>
+                        <fieldset>
+                            <input placeholder="Your Web Site starts with http://" type="url" tabindex="4" required>
+                        </fieldset>
+                        <fieldset>
+                            <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+                        </fieldset>
+                        <fieldset>
+                            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="col-md-6 right-contact">
+                    
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Review -->
+    <section id="review" class="content-body review-parallax">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <h2 style="color: white;">Reviews</h2>
+                </div>
+                <div class="col-md-3">
+                    <input type="button" name="submit" id="submit" value="Add a review" class="btn btn-lg btn-primary btn-block" style="margin-bottom: 2em" onclick="newReview()">
+                </div>
+            </div>
+            <div class="row">    
+                <div id="emptyReview">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="content-body gallery">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="row">
+                <div class="col-lg-3">
+                    <a href="images/donuts.jpeg" data-title="Sugar Sprinkled Donut Holes" data-lightbox="Desserts">
+                        <img src="images/donuts.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+                <div class="col-lg-3">
+                    <a href="images/chocolatecake.jpeg" data-title="Chocolate Cake" data-lightbox="Desserts">
+                        <img src="images/chocolatecake.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+                <div class="col-lg-3">
+                    <a href="images/tiramisu.jpeg" data-title="Tiramisu" data-lightbox="Desserts">
+                        <img src="images/tiramisu.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+                <div class="col-lg-3">
+                    <a href="images/whitecake.jpeg" data-title="White Chocolate Cake" data-lightbox="Desserts">
+                        <img src="images/whitecake.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+            </div>
+            <!--row-->
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <a href="images/salmon.jpeg" data-title="Salmon Steak" data-lightbox="Mains">
+                        <img src="images/salmon.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+                <div class="col-lg-3">
+                    <a href="images/chickenbreast.jpg" data-title="Chicken Breast" data-lightbox="Mains">
+                        <img src="images/chickenbreast.jpg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+                <div class="col-lg-3">
+                    <a href="images/steak.jpeg" data-title="Sirloin Steak" data-lightbox="Mains">
+                        <img src="images/steak.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+                <div class="col-lg-3">
+                    <a href="images/burger1.jpeg" data-title="Cheese Burger" data-lightbox="Mains">
+                        <img src="images/burger1.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+            </div>
+            <!--row-->
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <a href="images/burger2.jpeg" data-title="Beef Burger and Chips" data-lightbox="Mains">
+                        <img src="images/burger2.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+                <div class="col-lg-3">
+                    <a href="images/steakloaf.jpeg" data-title="Barbecued Steak Loaf" data-lightbox="Mains">
+                        <img src="images/steakloaf.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+                <div class="col-lg-3">
+                    <a href="images/pizza.jpeg" data-title="Margarita Pizza" data-lightbox="Mains">
+                        <img src="images/pizza.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+                <div class="col-lg-3">
+                    <a href="images/pasta.jpg" data-title="Meatball Pasta" data-lightbox="Mains">
+                        <img src="images/pasta.jpg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+            </div>
+            <!--row-->
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <a href="images/alcohol1.jpg" data-title="Asahi" data-lightbox="Beverage">
+                        <img src="images/alcohol1.jpg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+                <div class="col-lg-3">
+                    <a href="images/alcohol2.jpeg" data-title="Beer dispenser" data-lightbox="Beverage">
+                        <img src="images/alcohol2.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+                <div class="col-lg-3">
+                    <a href="images/alcohol3.jpeg" data-title="Jack Daniel's Whiskey" data-lightbox="Beverage">
+                        <img src="images/alcohol3.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+                <div class="col-lg-3">
+                    <a href="images/alcohol4.jpeg" data-title="Hard Liquor" data-lightbox="Beverage">
+                        <img src="images/alcohol4.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+            </div>
+            <!--row-->
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <a href="images/people2.jpeg" data-title="Food Counter" data-lightbox="Atmosphere">
+                        <img src="images/people2.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+                <div class="col-lg-3">
+                    <a href="images/people3.jpeg" data-title="Bar" data-lightbox="Atmosphere">
+                        <img src="images/people3.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+                <div class="col-lg-3">
+                    <a href="images/people4.jpeg" data-title="Dinning" data-lightbox="Atmosphere">
+                        <img src="images/people4.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+                <div class="col-lg-3">
+                    <a href="images/people.jpeg" data-title="Basic" data-lightbox="Atmosphere">
+                        <img src="images/people.jpeg" width="100%" class="img-thumbnail">
+                    </a>
+                </div>
+                <!--column-->
+            </div>
+            <!--row-->
+        </div>
+        <!--container-->
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Xanda's Bar and Grill 2017</p>
+        </div>
+    </footer>
+
+
+    <!-- Included HTML -->
+    <div w3-include-html="account-modal.html"></div>
+    <div w3-include-html="order-modal.html"></div>
+    <div w3-include-html="confirmation-modal.html"></div>
+    <div w3-include-html="register-modal.html"></div>
+    <div w3-include-html="added-modal.html"></div>
+    <div w3-include-html="profile-modal.html"></div>
+    <div w3-include-html="update-modal.html"></div>
+    <div w3-include-html="checkout-modal.html"></div>
+    <div w3-include-html="new-review-modal.html"></div>
+    <div w3-include-html="focus-review-modal.html"></div>
+    <div w3-include-html="edit-review-modal.html"></div>
+    <div w3-include-html="confirmation-modal.html"></div>
+    <div w3-include-html="uOrder-modal.html"></div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap-native-v4.js"></script>
+    <script src="jquery/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.js"></script>
+
+    <!-- Plugin Javascript -->
+    <script src="jquery-easing/jquery.easing.js"></script>
+    <script src="js/jquery.datetimepicker.full.js"></script>
+    <script src="js/lightbox.js"></script>
+
+    <!-- Custom Javascript -->
+    <script src="js/users.js"></script>
+    <script src="js/scrolling.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/carts.js"></script>
+    <script src="js/reviews.js"></script>
+
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script>
+        w3.includeHTML();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,370 @@
+body {
+  font-family: 'Cantarell', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: black;
+  background-color: white;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fjalla One', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 0 25px;
+}
+
+@media (min-width: 768px) {
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 0 35px;
+  }
+}
+
+#mainNav {
+  font-family: 'Fjalla One', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  background-color:rgba(40, 40, 40, 0.9);
+}
+
+#mainNav .navbar-toggler {
+  font-size: 14px;
+  padding: 11px;
+  color: white;
+  border: 1px solid white;
+}
+
+#mainNav a {
+  color: white;
+}
+
+#mainNav .navbar-nav .nav-item {
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background 0.3s ease-in-out;
+}
+
+#mainNav .navbar-nav .nav-item:hover {
+  color: fade(white, 80%);
+  outline: none;
+  background-color: transparent;
+}
+
+#mainNav .navbar-nav .nav-item:active, #mainNav .navbar-nav .nav-item:focus {
+  outline: none;
+  background-color: transparent;
+}
+
+/* This is the one that's used fullscreen */
+@media (min-width: 992px) {
+  #mainNav {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    -webkit-transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
+    -moz-transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
+    transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
+    letter-spacing: 1px;
+    border-bottom: none;
+    background: transparent;
+  }
+  #mainNav.navbar-shrink {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    background-color:rgba(40, 40, 40, 0.9);
+  }
+  #mainNav .nav-link.active {
+    outline: none;
+    color: #ff9725;
+  }
+  #mainNav .nav-link.active:hover {
+    color: white;
+  }
+}
+
+.masthead {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 200px 0;
+  text-align: center;
+  color: white;
+  background: url("../images/home.jpg") no-repeat bottom center scroll;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.masthead .intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.masthead .intro-body .brand-heading {
+  font-size: 50px;
+}
+
+.masthead .intro-body .intro-text {
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  .masthead {
+    height: 100%;
+    padding: 0;
+  }
+  .masthead .intro-body .brand-heading {
+    font-size: 100px;
+  }
+  .masthead .intro-body .intro-text {
+    font-size: 22px;
+  }
+}
+
+.content-body {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.about-parallax{
+  background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("../images/bread.jpg");
+
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.about-body, .menu-body, .contact-body{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: white;
+}
+
+.about-body p, .about-body h2{
+  padding-bottom: 35px;
+  padding-top: 35px;
+  color: white;
+}
+
+.about-body p {
+  font-size: 135%;
+}
+
+@media(max-width:992px){
+  .about-body p,  .about-body h2{
+  font-size: 90%
+  }
+}
+
+.menu-parallax{
+    background-image: url("../images/bg4.jpeg");
+
+    /* Set a specific height */
+    height: auto; 
+    min-height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nav-tabs {
+  text-align: center;
+}
+
+.menu-body .nav-item {
+  float: none;
+  display: inline-block;
+}
+
+.menu-body a{
+  color: black;  
+  text-transform: uppercase;
+}
+
+
+/* List for the tabs */
+.mu-restaurant-menu {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  border: none;
+  margin-bottom: 2%;
+}
+
+/* List items */
+.mu-restaurant-menu li {
+  display: inline-block;
+  float: none;
+  background-color: rgba(40, 40, 40, 0.9);
+}
+
+/* Anchors for each list items */
+.mu-restaurant-menu li a {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  border-radius: 0;
+  color: white;
+  font-size: 18px;
+  margin: 0 15px;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+/* 
+List item hover effects */
+.mu-restaurant-menu li a:hover,
+.mu-restaurant-menu .active a
+{
+  color:#ff9725 ;
+}
+
+
+.img-pointer{
+  cursor: pointer;
+}
+.reserve-form .form-group .form-field {
+  position: relative;
+}
+
+.reserve-form .form-group .form-field .fa {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 20px;
+}
+
+.media-object{
+  margin: 1em 1em;
+}
+
+.btn-primary{
+  background-color: #ff9725;
+  border-color: none;
+}
+
+.reservation-parallax{
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  background-image: url("../images/reservation.jpeg");
+
+  /* Set a specific height */
+  
+  height: auto; 
+  min-height: 75%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.review-parallax{
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  background-image: url("../images/bg9.jpeg");
+
+  /* Set a specific height */
+  
+  height: auto; 
+  min-height: 100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.gallery-parallax{
+  background-image: url("../images/bg7.jpeg");
+
+  /* Set a specific height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.reviewTab{
+  margin-bottom: 1em;
+}
+.contact-parallax{
+  
+  background: 
+  linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ),
+  url("../images/bg.jpeg");
+
+  /* Set a specific height */
+  height: auto; 
+  min-height: 75%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  color:white;
+}
+
+footer {
+  padding: 50px 0;
+}
+
+footer p {
+  font-size: 14px;
+  margin: 0;
+}
+
+::-moz-selection {
+  background: #fcfcfc;
+  background: rgba(255, 255, 255, 0.2);
+  text-shadow: none;
+}
+
+::selection {
+  background: #ff9725;
+  text-shadow: none;
+}
